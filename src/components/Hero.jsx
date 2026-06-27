@@ -124,10 +124,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      <div className="scroll-hint">
-        <span>向下滚动探索</span>
-      </div>
     </section>
   );
 }

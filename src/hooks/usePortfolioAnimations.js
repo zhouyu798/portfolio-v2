@@ -16,57 +16,51 @@ export function usePortfolioAnimations() {
 
     const ctx = gsap.context(() => {
       gsap.set(".hero-bg, .hero-bg-layer", {
-        autoAlpha: isMobile ? 0.78 : 0.72,
-        y: isMobile ? 20 : 36,
-        scale: isMobile ? 1.035 : 1.08,
+        autoAlpha: 0,
+        y: isMobile ? 28 : 80,
+        scale: isMobile ? 1.035 : 1.12,
         force3D: true,
       });
 
       gsap.set(".site-nav", {
-        autoAlpha: 1,
-        y: 0,
+        autoAlpha: 0,
+        y: -16,
         force3D: true,
       });
 
       gsap.set(".hero-visual", {
-        filter: isMobile ? "blur(3px)" : "blur(6px)",
+        filter: "blur(6px)",
         force3D: true,
       });
 
       gsap.set(".hero-title", {
-        autoAlpha: isMobile ? 0.92 : 0.86,
-        y: isMobile ? 18 : 36,
-        scale: 0.99,
+        autoAlpha: 0,
+        y: isMobile ? 28 : 60,
+        scale: 0.985,
         force3D: true,
       });
 
       gsap.set([".hero-eyebrow", ".hero-subtitle", ".hero-copy"], {
-        autoAlpha: isMobile ? 0.72 : 0.56,
-        y: isMobile ? 14 : 24,
+        autoAlpha: 0,
+        y: isMobile ? 22 : 40,
         force3D: true,
       });
 
       gsap.set([".hero-tag", ".hero-cta"], {
-        autoAlpha: isMobile ? 0.78 : 0.72,
-        y: isMobile ? 12 : 16,
+        autoAlpha: 0,
+        y: isMobile ? 18 : 30,
         force3D: true,
       });
 
       gsap.set([".hero-float-card", ".live-view-badge"], {
-        autoAlpha: isMobile ? 0.66 : 0.58,
-        filter: isMobile ? "blur(4px)" : "blur(8px)",
+        autoAlpha: 0,
+        filter: "blur(8px)",
         force3D: true,
       });
 
       gsap.set(".device-map span", {
-        autoAlpha: isMobile ? 0.68 : 0.52,
+        autoAlpha: 0,
         filter: "blur(5px)",
-        force3D: true,
-      });
-
-      gsap.set(".scroll-hint", {
-        autoAlpha: 1,
-        y: 0,
         force3D: true,
       });
 
@@ -88,8 +82,7 @@ export function usePortfolioAnimations() {
           .to(".hero-title", { autoAlpha: 1, y: 0, scale: 1, duration: 0.55 }, 0.28)
           .to([".hero-subtitle", ".hero-copy"], { autoAlpha: 1, y: 0, stagger: 0.08, duration: 0.5 }, 0.42)
           .to(".hero-tag", { autoAlpha: 1, y: 0, stagger: 0.03, duration: 0.45 }, 0.56)
-          .to(".hero-cta", { autoAlpha: 1, y: 0, stagger: 0.04, duration: 0.45 }, 0.66)
-          .to(".scroll-hint", { autoAlpha: 0.72, y: 4, duration: 0.4 }, 0.72);
+          .to(".hero-cta", { autoAlpha: 1, y: 0, stagger: 0.04, duration: 0.45 }, 0.66);
       } else {
         const heroTl = gsap.timeline({
           defaults: {
@@ -108,7 +101,6 @@ export function usePortfolioAnimations() {
         });
 
         heroTl
-          .to(".scroll-hint", { autoAlpha: 0, y: 12, duration: 0.25, ease: "power2.out" }, 0.08)
           .to(".hero-bg, .hero-bg-layer", {
             autoAlpha: 1,
             y: 0,
