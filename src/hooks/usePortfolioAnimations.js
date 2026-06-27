@@ -15,10 +15,31 @@ export function usePortfolioAnimations() {
     const heroDistance = () => Math.max(2200, window.innerHeight * 2.4);
 
     const ctx = gsap.context(() => {
-      gsap.set(".hero-bg, .hero-bg-layer", {
+      gsap.set(".hero-bg", {
         autoAlpha: 0,
-        y: isMobile ? 28 : 80,
-        scale: isMobile ? 1.035 : 1.12,
+        y: isMobile ? 16 : 32,
+        scale: isMobile ? 1.02 : 1.035,
+        force3D: true,
+      });
+
+      gsap.set(".hero-orb-wrap", {
+        autoAlpha: 1,
+        y: 0,
+        scale: 1,
+        force3D: true,
+      });
+
+      gsap.set(".hero-ring.primary", {
+        opacity: 0.28,
+        scale: 0.92,
+        filter: "blur(0.5px)",
+        force3D: true,
+      });
+
+      gsap.set(".hero-ring.secondary", {
+        opacity: 0.18,
+        scale: 0.88,
+        filter: "blur(0.8px)",
         force3D: true,
       });
 
@@ -29,6 +50,9 @@ export function usePortfolioAnimations() {
       });
 
       gsap.set(".hero-visual", {
+        autoAlpha: 0,
+        y: isMobile ? 28 : 80,
+        scale: isMobile ? 1.035 : 1.12,
         filter: "blur(6px)",
         force3D: true,
       });
@@ -72,17 +96,19 @@ export function usePortfolioAnimations() {
               ease: "power2.out",
             },
           })
-          .to(".hero-bg, .hero-bg-layer", { autoAlpha: 1, y: 0, scale: 1 }, 0)
-          .to(".hero-visual", { filter: "blur(0px)" }, 0)
-          .to(".site-nav", { autoAlpha: 1, y: 0, duration: 0.45 }, 0.05)
-          .to(".hero-float-card", { autoAlpha: 1, filter: "blur(0px)", stagger: 0.05 }, 0.16)
-          .to(".live-view-badge", { autoAlpha: 1, filter: "blur(0px)", duration: 0.45 }, 0.24)
-          .to(".device-map span", { autoAlpha: 1, filter: "blur(0px)", stagger: 0.03, duration: 0.42 }, 0.28)
-          .to(".hero-eyebrow", { autoAlpha: 1, y: 0, duration: 0.45 }, 0.2)
+          .to(".hero-ring.primary", { opacity: 0.85, scale: 1, filter: "blur(0px)" }, 0)
+          .to(".hero-ring.secondary", { opacity: 0.62, scale: 1, filter: "blur(0px)" }, 0.05)
+          .to(".hero-bg", { autoAlpha: 1, y: 0, scale: 1 }, 0.12)
+          .to(".site-nav", { autoAlpha: 1, y: 0, duration: 0.45 }, 0.18)
+          .to(".hero-visual", { autoAlpha: 1, y: 0, scale: 1, filter: "blur(0px)" }, 0.22)
+          .to(".hero-float-card", { autoAlpha: 1, filter: "blur(0px)", stagger: 0.05 }, 0.3)
+          .to(".live-view-badge", { autoAlpha: 1, filter: "blur(0px)", duration: 0.45 }, 0.36)
+          .to(".device-map span", { autoAlpha: 1, filter: "blur(0px)", stagger: 0.03, duration: 0.42 }, 0.42)
+          .to(".hero-eyebrow", { autoAlpha: 1, y: 0, duration: 0.45 }, 0.24)
           .to(".hero-title", { autoAlpha: 1, y: 0, scale: 1, duration: 0.55 }, 0.28)
           .to([".hero-subtitle", ".hero-copy"], { autoAlpha: 1, y: 0, stagger: 0.08, duration: 0.5 }, 0.42)
-          .to(".hero-tag", { autoAlpha: 1, y: 0, stagger: 0.03, duration: 0.45 }, 0.56)
-          .to(".hero-cta", { autoAlpha: 1, y: 0, stagger: 0.04, duration: 0.45 }, 0.66);
+          .to(".hero-tag", { autoAlpha: 1, y: 0, stagger: 0.03, duration: 0.45 }, 0.52)
+          .to(".hero-cta", { autoAlpha: 1, y: 0, stagger: 0.04, duration: 0.45 }, 0.56);
       } else {
         const heroTl = gsap.timeline({
           defaults: {
@@ -101,24 +127,38 @@ export function usePortfolioAnimations() {
         });
 
         heroTl
-          .to(".hero-bg, .hero-bg-layer", {
+          .to(".hero-ring.primary", {
+            opacity: 0.85,
+            scale: 1,
+            filter: "blur(0px)",
+            duration: 1.1,
+            ease: "power3.out",
+          }, 0)
+          .to(".hero-ring.secondary", {
+            opacity: 0.62,
+            scale: 1,
+            filter: "blur(0px)",
+            duration: 1.05,
+            ease: "power3.out",
+          }, 0.05)
+          .to(".hero-bg", {
             autoAlpha: 1,
             y: 0,
             scale: 1,
-            duration: 1.1,
+            duration: 0.9,
             ease: "power3.out",
-          })
-          .to(".hero-visual", { filter: "blur(0px)", duration: 1.05, ease: "power3.out" }, 0.05)
-          .to(".hero-float-card", { autoAlpha: 1, filter: "blur(0px)", stagger: 0.08, duration: 0.85 }, 0.2)
-          .to(".live-view-badge", { autoAlpha: 1, filter: "blur(0px)", duration: 0.65 }, 0.32)
-          .to(".device-map span", { autoAlpha: 1, filter: "blur(0px)", stagger: 0.035, duration: 0.5 }, 0.42)
-          .to(".site-nav", { autoAlpha: 1, y: 0, duration: 0.55 }, 1)
-          .to(".hero-eyebrow", { autoAlpha: 1, y: 0, duration: 0.5 }, 1.05)
-          .to(".hero-title", { autoAlpha: 1, y: 0, scale: 1, duration: 0.7, ease: "power3.out" }, 1.15)
-          .to(".hero-subtitle", { autoAlpha: 1, y: 0, duration: 0.6 }, 1.35)
-          .to(".hero-copy", { autoAlpha: 1, y: 0, duration: 0.6 }, 1.48)
-          .to(".hero-tag", { autoAlpha: 1, y: 0, stagger: 0.04, duration: 0.55 }, 1.6)
-          .to(".hero-cta", { autoAlpha: 1, y: 0, stagger: 0.05, duration: 0.6 }, 1.72)
+          }, 0.12)
+          .to(".site-nav", { autoAlpha: 1, y: 0, duration: 0.5 }, 0.24)
+          .to(".hero-eyebrow", { autoAlpha: 1, y: 0, duration: 0.5 }, 0.24)
+          .to(".hero-title", { autoAlpha: 1, y: 0, scale: 1, duration: 0.7, ease: "power3.out" }, 0.28)
+          .to(".hero-subtitle", { autoAlpha: 1, y: 0, duration: 0.6 }, 0.42)
+          .to(".hero-copy", { autoAlpha: 1, y: 0, duration: 0.6 }, 0.5)
+          .to(".hero-tag", { autoAlpha: 1, y: 0, stagger: 0.04, duration: 0.55 }, 0.52)
+          .to(".hero-cta", { autoAlpha: 1, y: 0, stagger: 0.05, duration: 0.6 }, 0.56)
+          .to(".hero-visual", { autoAlpha: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 1.05, ease: "power3.out" }, 0.62)
+          .to(".hero-float-card", { autoAlpha: 1, filter: "blur(0px)", stagger: 0.08, duration: 0.85 }, 0.74)
+          .to(".live-view-badge", { autoAlpha: 1, filter: "blur(0px)", duration: 0.65 }, 0.86)
+          .to(".device-map span", { autoAlpha: 1, filter: "blur(0px)", stagger: 0.035, duration: 0.5 }, 0.96)
           .to({}, { duration: 0.55 });
       }
 

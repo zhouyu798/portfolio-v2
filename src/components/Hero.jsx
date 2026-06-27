@@ -22,10 +22,10 @@ export default function Hero() {
     <section className="hero hero-section relative min-h-screen overflow-hidden px-5 pt-28">
       <div className="hero-bg absolute inset-0 hero-grid" />
       <div className="hero-bg-layer hero-orb-wrap motion-critical absolute left-[57%] top-[8%] h-[430px] w-[430px]">
-        <div className="hero-orb hero-ring inset-0 h-full w-full" />
+        <div className="hero-orb hero-ring primary inset-0 h-full w-full" />
       </div>
       <div className="hero-bg-layer hero-orb-wrap motion-critical absolute -left-24 bottom-12 h-[280px] w-[280px]">
-        <div className="hero-orb hero-orb--muted hero-ring inset-0 h-full w-full" />
+        <div className="hero-orb hero-orb--muted hero-ring secondary inset-0 h-full w-full" />
       </div>
 
       <div className="hero-content relative z-10 mx-auto grid min-h-[calc(100vh-112px)] max-w-canvas items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
