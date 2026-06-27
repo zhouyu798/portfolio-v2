@@ -64,6 +64,28 @@ img {
   -webkit-backdrop-filter: blur(12px);
 }
 
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  will-change: transform, opacity;
+}
+
+.hero-bg-layer {
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
 .hero-grid {
   background-image:
     linear-gradient(rgba(15, 99, 255, 0.06) 1px, transparent 1px),

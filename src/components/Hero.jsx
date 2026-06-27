@@ -19,16 +19,16 @@ const deviceNodes = [
 
 export default function Hero() {
   return (
-    <section className="hero relative min-h-screen overflow-hidden px-5 pt-28">
-      <div className="absolute inset-0 hero-grid" />
-      <div className="hero-orb-wrap motion-critical absolute left-[57%] top-[8%] h-[430px] w-[430px]">
+    <section className="hero hero-section relative min-h-screen overflow-hidden px-5 pt-28">
+      <div className="hero-bg absolute inset-0 hero-grid" />
+      <div className="hero-bg-layer hero-orb-wrap motion-critical absolute left-[57%] top-[8%] h-[430px] w-[430px]">
         <div className="hero-orb hero-ring inset-0 h-full w-full" />
       </div>
-      <div className="hero-orb-wrap motion-critical absolute -left-24 bottom-12 h-[280px] w-[280px]">
+      <div className="hero-bg-layer hero-orb-wrap motion-critical absolute -left-24 bottom-12 h-[280px] w-[280px]">
         <div className="hero-orb hero-orb--muted hero-ring inset-0 h-full w-full" />
       </div>
 
-      <div className="relative z-10 mx-auto grid min-h-[calc(100vh-112px)] max-w-canvas items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+      <div className="hero-content relative z-10 mx-auto grid min-h-[calc(100vh-112px)] max-w-canvas items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
         <div>
           <p className="hero-eyebrow motion-critical mb-6 inline-flex rounded-full border border-line bg-white/72 px-4 py-2 text-sm font-semibold text-harmony shadow-soft backdrop-blur-xl">
             Zhang Yu · UI/UX Portfolio
@@ -72,7 +72,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hero-visual motion-critical relative min-h-[560px]">
+        <div className="hero-bg-layer hero-visual motion-critical relative min-h-[560px]">
           <div className="absolute right-4 top-8">
             <LiveViewBadge />
           </div>
