@@ -39,7 +39,7 @@ export default function ProjectDetail() {
         <div className="mx-auto max-w-canvas">
           <Link
             to="/#work"
-            className="mb-8 inline-flex items-center gap-2 rounded-full border border-line bg-white/78 px-4 py-2 text-sm font-semibold text-muted backdrop-blur-xl transition hover:border-harmony hover:text-harmony"
+            className="mb-8 inline-flex items-center gap-2 rounded-full border border-line bg-white/78 px-4 py-2 text-sm font-semibold text-muted backdrop-blur-xl transition-colors hover:border-harmony hover:text-harmony"
           >
             <ArrowLeft size={17} /> 返回作品
           </Link>
@@ -101,7 +101,7 @@ export default function ProjectDetail() {
                     <a
                       key={id}
                       href={`#${id}`}
-                      className="block rounded-full px-4 py-3 text-sm font-semibold text-muted transition hover:bg-soft hover:text-harmony"
+                      className="block rounded-full px-4 py-3 text-sm font-semibold text-muted transition-colors hover:bg-soft hover:text-harmony"
                     >
                       {label}
                     </a>
@@ -132,7 +132,7 @@ export default function ProjectDetail() {
           <div className="mt-12 flex justify-end">
             <Link
               to={`/projects/${nextProject.slug}`}
-              className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-4 text-sm font-semibold text-white shadow-card transition hover:bg-harmony"
+              className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-4 text-sm font-semibold text-white shadow-card transition-colors hover:bg-harmony"
             >
               下一项目 · {nextProject.id}
               <ExternalLink size={17} />

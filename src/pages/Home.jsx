@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import Navbar from "../components/Navbar.jsx";
 import Hero from "../components/Hero.jsx";
 import Experience from "../components/Experience.jsx";
@@ -9,22 +8,18 @@ import ContactSection from "../components/ContactSection.jsx";
 import Footer from "../components/Footer.jsx";
 import { projects } from "../data/projects.js";
 import { strengths } from "../data/strengths.js";
-
-const motionEase = [0.22, 1, 0.36, 1];
+import { usePortfolioAnimations } from "../hooks/usePortfolioAnimations.js";
 
 export default function Home() {
+  const animationRootRef = usePortfolioAnimations();
+
   return (
-    <motion.main
-      className="motion-smooth"
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ type: "tween", duration: 0.75, ease: motionEase }}
-    >
+    <main ref={animationRootRef}>
       <Navbar />
       <Hero />
       <Experience />
 
-      <section id="work" className="px-5 py-24 lg:py-32">
+      <section id="work" className="projects-section px-5 py-24 lg:py-32">
         <div className="mx-auto max-w-canvas">
           <SectionHeader
             eyebrow="Selected Works"
@@ -56,6 +51,6 @@ export default function Home() {
 
       <ContactSection />
       <Footer />
-    </motion.main>
+    </main>
   );
 }

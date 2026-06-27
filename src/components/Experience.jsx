@@ -1,6 +1,7 @@
 import { Mail, MapPin, Phone, Sparkles, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 import SectionHeader from "./SectionHeader.jsx";
+import { assetPath } from "../utils/assets.js";
 
 const motionEase = [0.22, 1, 0.36, 1];
 
@@ -33,7 +34,7 @@ export default function Experience() {
           >
             <div className="relative h-full min-h-[560px] overflow-hidden bg-soft">
               <img
-                src="/images/portfolio/optimized/about-large.webp"
+                src={assetPath("images/portfolio/optimized/about-large.webp")}
                 alt="张裕个人介绍视觉"
                 loading="lazy"
                 decoding="async"

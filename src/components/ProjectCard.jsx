@@ -1,20 +1,10 @@
 import { ArrowUpRight } from "lucide-react";
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-
-const motionEase = [0.22, 1, 0.36, 1];
 
 export default function ProjectCard({ project }) {
   return (
-    <motion.article
-      className="motion-smooth group"
-      initial={{ opacity: 0, y: 36 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-8% 0px" }}
-      whileHover={{ y: -6 }}
-      transition={{ type: "tween", duration: 0.75, ease: motionEase }}
-    >
-      <Link to={`/projects/${project.slug}`} className="glass-card block h-full overflow-hidden p-6 md:p-8">
+    <article className="project-card-shell motion-critical group">
+      <Link to={`/projects/${project.slug}`} className="project-card-surface glass-card block h-full overflow-hidden p-6 md:p-8">
         <div className="flex items-start justify-between gap-6">
           <div className="flex items-center gap-5">
             <span className="text-6xl font-bold leading-none text-ink md:text-7xl">
@@ -22,7 +12,7 @@ export default function ProjectCard({ project }) {
             </span>
             <span className="h-20 w-px bg-motion" />
           </div>
-          <span className="grid h-11 w-11 place-items-center rounded-full border border-line bg-white text-ink transition group-hover:border-harmony group-hover:text-harmony">
+          <span className="grid h-11 w-11 place-items-center rounded-full border border-line bg-white text-ink transition-colors group-hover:border-harmony group-hover:text-harmony">
             <ArrowUpRight size={20} />
           </span>
         </div>
@@ -49,10 +39,10 @@ export default function ProjectCard({ project }) {
             alt={project.title}
             loading="lazy"
             decoding="async"
-            className="aspect-[16/9] w-full object-cover transition duration-500 group-hover:scale-[1.02]"
+            className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
           />
         </div>
       </Link>
-    </motion.article>
+    </article>
   );
 }

@@ -20,7 +20,7 @@ export default function ImageGallery({ images }) {
               alt={item.caption}
               loading="lazy"
               decoding="async"
-              className="w-full object-cover transition duration-500 group-hover:scale-[1.02]"
+              className="w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
             />
           </div>
           <figcaption className="px-3 py-4 text-sm leading-7 text-muted">

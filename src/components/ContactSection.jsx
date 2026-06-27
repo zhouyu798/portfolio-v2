@@ -1,10 +1,13 @@
 import { Download, Mail, Phone } from "lucide-react";
 import { motion } from "framer-motion";
+import { assetPath } from "../utils/assets.js";
 
 const motionEase = [0.22, 1, 0.36, 1];
 const entranceTransition = { type: "tween", duration: 0.85, ease: motionEase };
 
 export default function ContactSection() {
+  const resumePath = assetPath("images/portfolio/resume.png");
+
   return (
     <section id="contact" className="relative flex min-h-screen items-center overflow-hidden px-5 py-28">
       <div className="absolute left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2">
@@ -50,15 +53,15 @@ export default function ContactSection() {
 
         <div className="mt-10 flex flex-wrap justify-center gap-4">
           <a
-            href="/images/portfolio/resume.png"
+            href={resumePath}
             download
-            className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-4 text-sm font-semibold text-white shadow-card transition hover:bg-harmony"
+            className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-4 text-sm font-semibold text-white shadow-card transition-colors hover:bg-harmony"
           >
             下载简历 <Download size={18} />
           </a>
           <a
             href="mailto:2082315263@qq.com"
-            className="inline-flex items-center gap-2 rounded-full border border-line bg-white/78 px-6 py-4 text-sm font-semibold text-ink backdrop-blur-xl transition hover:border-harmony hover:text-harmony"
+            className="inline-flex items-center gap-2 rounded-full border border-line bg-white/78 px-6 py-4 text-sm font-semibold text-ink backdrop-blur-xl transition-colors hover:border-harmony hover:text-harmony"
           >
             联系我 <Mail size={18} />
           </a>

@@ -1,4 +1,6 @@
-const image = (name) => `/images/portfolio/optimized/${name.replace(/\.png$/i, ".webp")}`;
+import { assetPath } from "../utils/assets.js";
+
+const image = (name) => assetPath(`images/portfolio/optimized/${name.replace(/\.png$/i, ".webp")}`);
 
 export const projects = [
   {

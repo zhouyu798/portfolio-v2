@@ -1,29 +1,9 @@
-import { motion, useReducedMotion } from "framer-motion";
-
-const motionEase = [0.22, 1, 0.36, 1];
-
 export default function StrengthCard({ strength }) {
   const Icon = strength.icon;
   const isOrange = strength.accent === "orange";
-  const shouldReduceMotion = useReducedMotion();
 
   return (
-    <motion.article
-      className="advantage-card group p-6"
-      initial={shouldReduceMotion ? false : { opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-8% 0px" }}
-      whileHover={
-        shouldReduceMotion
-          ? undefined
-          : {
-              y: -6,
-              scale: 1.015,
-              transition: { type: "tween", duration: 0.36, ease: motionEase },
-            }
-      }
-      transition={{ type: "tween", duration: 0.75, ease: motionEase }}
-    >
+    <article className="advantage-card motion-critical group p-6">
       <div className="advantage-card__content">
         <div className="flex items-start justify-between gap-4">
           <span
@@ -39,6 +19,6 @@ export default function StrengthCard({ strength }) {
         <p className="mt-2 text-sm font-semibold text-harmony">{strength.english}</p>
         <p className="mt-5 text-base leading-8 text-muted">{strength.description}</p>
       </div>
-    </motion.article>
+    </article>
   );
 }
