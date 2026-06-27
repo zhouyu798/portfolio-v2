@@ -1,23 +1,35 @@
 import { Download, Mail, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 
+const motionEase = [0.22, 1, 0.36, 1];
+const entranceTransition = { type: "tween", duration: 0.85, ease: motionEase };
+
 export default function ContactSection() {
   return (
     <section id="contact" className="relative flex min-h-screen items-center overflow-hidden px-5 py-28">
-      <motion.div
-        className="hero-ring left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2"
-        animate={{ rotate: 360, scale: [1, 1.025, 1] }}
-        transition={{ rotate: { duration: 44, repeat: Infinity, ease: "linear" }, scale: { duration: 8, repeat: Infinity, ease: "easeInOut" } }}
-      />
+      <div className="absolute left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2">
+        <motion.div
+          className="hero-ring motion-smooth inset-0 h-full w-full"
+          initial={{ opacity: 0, scale: 0.96, y: 16 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0, rotate: 360 }}
+          viewport={{ once: true, margin: "-12% 0px" }}
+          transition={{
+            opacity: entranceTransition,
+            scale: entranceTransition,
+            y: entranceTransition,
+            rotate: { duration: 44, repeat: Infinity, ease: "linear" },
+          }}
+        />
+      </div>
       <div className="absolute -left-20 top-10 h-80 w-80 rounded-full bg-harmony/10 blur-3xl" />
       <div className="absolute -right-16 bottom-20 h-80 w-80 rounded-full bg-harmony/10 blur-3xl" />
 
       <motion.div
-        className="relative z-10 mx-auto max-w-4xl text-center"
+        className="motion-smooth relative z-10 mx-auto max-w-4xl text-center"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-12% 0px" }}
-        transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+        transition={entranceTransition}
       >
         <p className="mb-6 text-sm font-semibold uppercase tracking-[0.3em] text-harmony">
           One Harmonious Universe

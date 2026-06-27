@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 export default function LiveViewBadge() {
   return (
     <motion.div
-      className="live-view-badge rounded-full border border-white/80 bg-white/78 px-4 py-3 shadow-card backdrop-blur-2xl"
-      animate={{ scale: [1, 1.025, 1], y: [0, -3, 0] }}
-      transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
+      className="live-view-badge motion-smooth rounded-full border border-white/80 bg-white/78 px-4 py-3 shadow-card backdrop-blur-2xl"
+      animate={{ y: [0, -3, 0] }}
+      transition={{ type: "tween", duration: 5.2, repeat: Infinity, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="flex items-center gap-3">
         <span className="grid h-9 w-9 place-items-center rounded-full bg-harmony text-white">

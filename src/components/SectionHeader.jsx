@@ -1,15 +1,17 @@
 import { motion } from "framer-motion";
 
+const motionEase = [0.22, 1, 0.36, 1];
+
 export default function SectionHeader({ eyebrow, title, subtitle, align = "left" }) {
   const centered = align === "center";
 
   return (
     <motion.div
-      className={`mb-12 ${centered ? "mx-auto max-w-4xl text-center" : "max-w-5xl"}`}
+      className={`motion-smooth mb-12 ${centered ? "mx-auto max-w-4xl text-center" : "max-w-5xl"}`}
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-12% 0px" }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ type: "tween", duration: 0.75, ease: motionEase }}
     >
       <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-harmony">
         {eyebrow}

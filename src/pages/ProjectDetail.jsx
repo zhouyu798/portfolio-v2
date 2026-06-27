@@ -14,6 +14,8 @@ const sections = [
   ["reflection", "Reflection"],
 ];
 
+const motionEase = [0.22, 1, 0.36, 1];
+
 export default function ProjectDetail() {
   const { slug } = useParams();
   const project = getProjectBySlug(slug);
@@ -27,9 +29,10 @@ export default function ProjectDetail() {
 
   return (
     <motion.main
+      className="motion-smooth"
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.72, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ type: "tween", duration: 0.75, ease: motionEase }}
     >
       <Navbar />
       <section className="px-5 pb-20 pt-32 lg:pt-40">
@@ -43,10 +46,10 @@ export default function ProjectDetail() {
 
           <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
             <motion.div
-              className="glass-card p-8 md:p-10"
+              className="glass-card motion-smooth p-8 md:p-10"
               initial={{ opacity: 0, y: 36 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ type: "tween", duration: 0.75, delay: 0.08, ease: motionEase }}
             >
               <p className="text-sm font-semibold uppercase tracking-[0.26em] text-harmony">
                 Project {project.id}
@@ -72,10 +75,10 @@ export default function ProjectDetail() {
             </motion.div>
 
             <motion.div
-              className="glass-card overflow-hidden p-4"
+              className="glass-card motion-smooth overflow-hidden p-4"
               initial={{ opacity: 0, y: 36, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.85, delay: 0.14, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ type: "tween", duration: 0.8, delay: 0.14, ease: motionEase }}
             >
               <img
                 src={project.cover}

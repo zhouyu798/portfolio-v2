@@ -12,19 +12,27 @@ const navItems = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const frameRef = useRef(null);
+  const scrolledRef = useRef(false);
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
+    const updateScrolled = () => {
+      const nextScrolled = window.scrollY > 18;
+      if (scrolledRef.current === nextScrolled) return;
+      scrolledRef.current = nextScrolled;
+      setScrolled(nextScrolled);
+    };
+
     const onScroll = () => {
       if (frameRef.current !== null) return;
       frameRef.current = window.requestAnimationFrame(() => {
-        setScrolled(window.scrollY > 18);
+        updateScrolled();
         frameRef.current = null;
       });
     };
 
-    onScroll();
+    updateScrolled();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", onScroll);

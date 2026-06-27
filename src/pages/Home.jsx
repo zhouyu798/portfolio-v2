@@ -10,12 +10,15 @@ import Footer from "../components/Footer.jsx";
 import { projects } from "../data/projects.js";
 import { strengths } from "../data/strengths.js";
 
+const motionEase = [0.22, 1, 0.36, 1];
+
 export default function Home() {
   return (
     <motion.main
+      className="motion-smooth"
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ type: "tween", duration: 0.75, ease: motionEase }}
     >
       <Navbar />
       <Hero />
@@ -36,8 +39,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="strengths" className="px-5 py-24 lg:py-32">
-        <div className="mx-auto max-w-canvas">
+      <section id="strengths" className="advantages-section px-5 py-24 lg:py-32">
+        <div className="relative z-10 mx-auto max-w-canvas">
           <SectionHeader
             eyebrow="Strengths"
             title="个人优势"

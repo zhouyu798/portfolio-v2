@@ -2,15 +2,17 @@ import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
+const motionEase = [0.22, 1, 0.36, 1];
+
 export default function ProjectCard({ project }) {
   return (
     <motion.article
+      className="motion-smooth group"
       initial={{ opacity: 0, y: 36 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-8% 0px" }}
       whileHover={{ y: -6 }}
-      transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-      className="group"
+      transition={{ type: "tween", duration: 0.75, ease: motionEase }}
     >
       <Link to={`/projects/${project.slug}`} className="glass-card block h-full overflow-hidden p-6 md:p-8">
         <div className="flex items-start justify-between gap-6">

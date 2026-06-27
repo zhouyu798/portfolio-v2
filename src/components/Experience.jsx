@@ -2,6 +2,8 @@ import { Mail, MapPin, Phone, Sparkles, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 import SectionHeader from "./SectionHeader.jsx";
 
+const motionEase = [0.22, 1, 0.36, 1];
+
 const stats = [
   ["4", "个精选项目"],
   ["17", "页作品集内容"],
@@ -23,11 +25,11 @@ export default function Experience() {
 
         <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
           <motion.div
-            className="glass-card min-h-[560px] overflow-hidden p-0"
+            className="glass-card motion-smooth min-h-[560px] overflow-hidden p-0"
             initial={{ opacity: 0, y: 36 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-10% 0px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ type: "tween", duration: 0.75, ease: motionEase }}
           >
             <div className="relative h-full min-h-[560px] overflow-hidden bg-soft">
               <img
@@ -45,11 +47,11 @@ export default function Experience() {
 
           <div className="space-y-6">
             <motion.div
-              className="glass-card p-7 md:p-10"
+              className="glass-card motion-smooth p-7 md:p-10"
               initial={{ opacity: 0, y: 36 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10% 0px" }}
-              transition={{ duration: 0.8, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ type: "tween", duration: 0.75, delay: 0.08, ease: motionEase }}
             >
               <div className="flex flex-wrap items-center gap-3">
                 <span className="rounded-full bg-harmony/10 px-4 py-2 text-sm font-semibold text-harmony">
@@ -81,11 +83,11 @@ export default function Experience() {
             </motion.div>
 
             <motion.div
-              className="rounded-[32px] border border-line bg-white/72 p-6 shadow-card backdrop-blur-xl md:p-8"
+              className="motion-smooth rounded-[32px] border border-line bg-white/72 p-6 shadow-card backdrop-blur-xl md:p-8"
               initial={{ opacity: 0, y: 36 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10% 0px" }}
-              transition={{ duration: 0.8, delay: 0.14, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ type: "tween", duration: 0.75, delay: 0.14, ease: motionEase }}
             >
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div>
@@ -117,11 +119,11 @@ export default function Experience() {
               {stats.map(([number, label], index) => (
                 <motion.div
                   key={label}
-                  className="rounded-[28px] border border-line bg-white/76 p-5 shadow-card backdrop-blur-xl"
+                  className="motion-smooth rounded-[28px] border border-line bg-white/76 p-5 shadow-card backdrop-blur-xl"
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-10% 0px" }}
-                  transition={{ duration: 0.65, delay: index * 0.05 }}
+                  transition={{ type: "tween", duration: 0.65, delay: index * 0.05, ease: motionEase }}
                 >
                   <p className="text-4xl font-bold text-harmony">{number}</p>
                   <p className="mt-2 text-sm font-semibold text-muted">{label}</p>
@@ -130,10 +132,11 @@ export default function Experience() {
             </div>
 
             <motion.div
-              className="inline-flex items-center gap-2 rounded-full border border-line bg-white/72 px-4 py-3 text-sm text-muted shadow-card backdrop-blur-xl"
+              className="motion-smooth inline-flex items-center gap-2 rounded-full border border-line bg-white/72 px-4 py-3 text-sm text-muted shadow-card backdrop-blur-xl"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              transition={{ type: "tween", duration: 0.65, ease: motionEase }}
             >
               <Sparkles size={16} className="text-motion" />
               教育时间：2023.09 - 2027.06

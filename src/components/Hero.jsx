@@ -2,6 +2,9 @@ import { ArrowDown, Mail, MousePointer2, Smartphone, Watch, Headphones, Glasses 
 import { motion } from "framer-motion";
 import LiveViewBadge from "./LiveViewBadge.jsx";
 
+const motionEase = [0.22, 1, 0.36, 1];
+const entranceTransition = { type: "tween", duration: 0.75, ease: motionEase };
+
 const tags = [
   "UI/UX Design",
   "Product Thinking",
@@ -23,21 +26,34 @@ export default function Hero() {
     <section className="relative min-h-screen overflow-hidden px-5 pt-28">
       <div className="absolute inset-0 hero-grid" />
       <motion.div
-        className="hero-ring left-[57%] top-[8%] h-[430px] w-[430px]"
-        animate={{ rotate: 360, y: [0, -18, 0] }}
-        transition={{ rotate: { duration: 36, repeat: Infinity, ease: "linear" }, y: { duration: 8, repeat: Infinity, ease: "easeInOut" } }}
+        className="hero-ring motion-smooth left-[57%] top-[8%] h-[430px] w-[430px]"
+        initial={{ opacity: 0, scale: 0.96, y: 16 }}
+        animate={{ opacity: 1, scale: 1, y: 0, rotate: 360 }}
+        transition={{
+          opacity: entranceTransition,
+          scale: entranceTransition,
+          y: entranceTransition,
+          rotate: { duration: 36, repeat: Infinity, ease: "linear" },
+        }}
       />
       <motion.div
-        className="hero-ring -left-24 bottom-12 h-[280px] w-[280px] opacity-40"
-        animate={{ rotate: -360, x: [0, 16, 0] }}
-        transition={{ rotate: { duration: 42, repeat: Infinity, ease: "linear" }, x: { duration: 10, repeat: Infinity, ease: "easeInOut" } }}
+        className="hero-ring motion-smooth -left-24 bottom-12 h-[280px] w-[280px] opacity-40"
+        initial={{ opacity: 0, scale: 0.96, y: 16 }}
+        animate={{ opacity: 0.4, scale: 1, y: 0, rotate: -360 }}
+        transition={{
+          opacity: entranceTransition,
+          scale: entranceTransition,
+          y: entranceTransition,
+          rotate: { duration: 42, repeat: Infinity, ease: "linear" },
+        }}
       />
 
       <div className="relative z-10 mx-auto grid min-h-[calc(100vh-112px)] max-w-canvas items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
         <motion.div
+          className="motion-smooth"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          transition={entranceTransition}
         >
           <p className="mb-6 inline-flex rounded-full border border-line bg-white/72 px-4 py-2 text-sm font-semibold text-harmony shadow-soft backdrop-blur-xl">
             Zhang Yu · UI/UX Portfolio
@@ -61,7 +77,7 @@ export default function Hero() {
                 className="rounded-full border border-line bg-white/74 px-4 py-2 text-sm font-medium text-muted backdrop-blur"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.35 + index * 0.05, duration: 0.55 }}
+                transition={{ type: "tween", delay: 0.28 + index * 0.08, duration: 0.55, ease: motionEase }}
               >
                 {tag}
               </motion.span>
@@ -85,19 +101,19 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
-          className="relative min-h-[560px]"
+          className="motion-smooth relative min-h-[560px]"
           initial={{ opacity: 0, y: 48, scale: 0.96 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ type: "tween", duration: 0.85, delay: 0.14, ease: motionEase }}
         >
           <div className="absolute right-4 top-8">
             <LiveViewBadge />
           </div>
 
           <motion.div
-            className="absolute left-2 top-28 w-[min(88vw,520px)] rounded-system border border-white/75 bg-white/74 p-6 shadow-card backdrop-blur-2xl"
-            animate={{ y: [0, -12, 0] }}
-            transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut" }}
+            className="motion-smooth absolute left-2 top-28 w-[min(88vw,520px)] rounded-system border border-white/75 bg-white/74 p-6 shadow-card backdrop-blur-2xl"
+            animate={{ y: [0, -7, 0] }}
+            transition={{ type: "tween", duration: 8, repeat: Infinity, ease: motionEase }}
           >
             <div className="flex items-center justify-between border-b border-line pb-5">
               <div>
@@ -125,9 +141,9 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            className="absolute bottom-14 right-4 w-[min(82vw,420px)] rounded-[34px] border border-white/75 bg-white/80 p-5 shadow-card backdrop-blur-2xl"
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 8.5, repeat: Infinity, ease: "easeInOut" }}
+            className="motion-smooth absolute bottom-14 right-4 w-[min(82vw,420px)] rounded-[34px] border border-white/75 bg-white/80 p-5 shadow-card backdrop-blur-2xl"
+            animate={{ y: [0, 7, 0] }}
+            transition={{ type: "tween", duration: 8.5, repeat: Infinity, ease: motionEase }}
           >
             <div className="mb-5 flex items-center gap-3">
               <span className="grid h-11 w-11 place-items-center rounded-full bg-motion text-white">
